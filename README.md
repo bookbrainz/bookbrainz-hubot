@@ -1,2 +1,2 @@
-BookBrainz Hubot (Bookzombie
+BookBrainz Hubot (Bookzombie)
 ===============
