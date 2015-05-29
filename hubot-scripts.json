@@ -1,3 +1,4 @@
 [
-  "jira-issues.coffee"
+  "jira-issues.coffee",
+  "travis.coffee"
 ]
