@@ -97,6 +97,7 @@ module.exports =
 
   push: (data, callback) ->
     commit_count = data.commits.length
+    console.log data.compare
     callback "#{formatUser(data.sender.login)} pushed #{commit_count} commits to #{data.repository.name}: #{formatLink(shortenLink(data.compare))}"
 
   pull_request_review_comment: (data, callback) ->
