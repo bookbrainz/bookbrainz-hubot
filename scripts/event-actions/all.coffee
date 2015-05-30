@@ -60,7 +60,7 @@ shortenLink = (link) ->
       if err
         callback err
       if res.statusCode == '201'
-        return res.headers.location
+        "#{res.headers.location}"
 
 buildNewIssueOrPRMessage = (data, eventType, callback) ->
   pr_or_issue = data[eventType]
