@@ -54,13 +54,13 @@ formatProse = (message) ->
 
 shortenLink = (link) ->
   request.post
-  	url: 'http://git.io',
+    url: 'http://git.io'
     form: url: link
   (err, res, body) ->
-      if err
-        callback err
-      if res.statusCode == '201'
-        return res.headers.location
+    if err
+      callback err
+    if res.statusCode == '201'
+      return res.headers.location
 
 buildNewIssueOrPRMessage = (data, eventType, callback) ->
   pr_or_issue = data[eventType]
