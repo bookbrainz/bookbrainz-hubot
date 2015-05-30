@@ -1,6 +1,6 @@
 #! /usr/bin/env coffee
 
-request = require 'request'
+gitio = require 'gitio'
 
 enableColors = process.env['HUBOT_GITHUB_EVENT_NOTIFIER_IRC_COLORS']
 
@@ -53,14 +53,10 @@ formatProse = (message) ->
     "#{message}"
 
 shortenLink = (link) ->
-  request.post
-    url: 'http://git.io'
-    form: url: link
-    (err, res, body) ->
-      if err
-        callback err
-      if res.statusCode == '201'
-        "#{res.headers.location}"
+  gitio link, (err, res) ->
+    if err
+      callback err
+    return res
 
 buildNewIssueOrPRMessage = (data, eventType, callback) ->
   pr_or_issue = data[eventType]
