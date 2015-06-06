@@ -53,11 +53,11 @@ formatProse = (message) ->
     "#{message}"
 
 shortenLink = (link) ->
-  console.log link
+  console.log "Got link #{link}"
   gitio link, (err, result) ->
     if err
       callback err
-    console.log result
+    console.log "Shortened link to #{result}"
     "#{result}"
 
 buildNewIssueOrPRMessage = (data, eventType, callback) ->
@@ -99,7 +99,7 @@ module.exports =
 
   push: (data, callback) ->
     commit_count = data.commits.length
-    callback "#{formatUser(data.sender.login)} pushed #{commit_count} commits to #{data.repository.name}: #{formatLink(shortenLink(data.compare))}"
+    callback "#{formatUser(data.sender.login)} pushed #{commit_count} commits to #{data.repository.name}: #{formatLink(data.compare)}"
 
   pull_request_review_comment: (data, callback) ->
     callback "#{formatUser(data.comment.user.login)} commented on pull request \"#{data.pull_request.title}\" (#{formatLink(data.pull_request.html_url)})"
