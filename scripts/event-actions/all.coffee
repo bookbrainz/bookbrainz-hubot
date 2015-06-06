@@ -53,10 +53,11 @@ formatProse = (message) ->
     "#{message}"
 
 shortenLink = (link) ->
+  console.log link
   gitio link, (err, result) ->
     if err
       callback err
-    console.log(result)
+    console.log result
     "#{result}"
 
 buildNewIssueOrPRMessage = (data, eventType, callback) ->
