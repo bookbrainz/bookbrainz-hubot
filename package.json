@@ -19,6 +19,7 @@
     "hubot-thank-you": "0.0.3",
     "hubot-travis-ci": "0.0.2",
     "irc-colors": "^1.1.1",
+    "moment": "^2.10.6",
     "querystring": "^0.2.0",
     "url": "^0.10.3"
   },
